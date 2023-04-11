@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -36,5 +37,11 @@ public class UserSignUpDB {
 
     @Column(name="password")
     private String password;
+
+    @Column(name="CREATED_DATE", updatable = false)
+    private LocalDateTime createdDate;
+
+    @Column(name="UPDATED_DATE", insertable = false)
+    private LocalDateTime updatedDate;
 
 }
