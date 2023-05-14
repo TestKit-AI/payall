@@ -31,4 +31,24 @@ public class UserSignUpServiceImpl implements UserSignUpService {
 
         }
     }
+    @Override
+    public Optional<UserSignUpDB> getUserDetails(UserUniqueKey userUniqueKey) {
+     Optional<UserSignUpDB> user =  userSignUpRepository.findById(userUniqueKey);
+       if(user.isPresent()){
+           return user;
+       }
+       else {
+           return null;
+       }
+    }
+
+    @Override
+    public String deleteUserById(UserUniqueKey userUniqueKey) {
+        log.info("Going to delete the User from data base");
+        userSignUpRepository.deleteById(userUniqueKey);
+        log.info("User deleted");
+        return   userUniqueKey.getEmailId() + " deleted from Data base";
+    }
+
+
 }

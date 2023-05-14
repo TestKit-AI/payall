@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
 
-    @GetMapping("/billbreaker/healthcheck")
+    @GetMapping("/healthcheck")
     public String homeCheck(){
         return "BillBreaker app is up and running";
     }
