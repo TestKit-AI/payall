@@ -1,0 +1,18 @@
+pipeline{
+    agent any
+
+    stages{
+        stage('Build Jar file'){
+            sh """
+                echo "Start building"
+                mvn clean build
+            """
+        }
+        stage('Docker build and push '){
+            sh """
+                echo "Docker build and push"
+                docker build -t nooli/billbreaker:v1 .
+            """
+        }
+    }
+}
