@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    environment {
+        PATH="/Users/sainooli/.docker/bin/docker"
+    }
     tools{
         maven 'M313'
     }
@@ -10,7 +13,7 @@ pipeline{
                     script{
                         sh """
                            echo "Start building"
-                           ls -al
+                           echo $PATH
                            mvn clean
                            mvn install
                            """
@@ -23,6 +26,7 @@ pipeline{
                 script{
                    sh """
                       echo "Docker build and push"
+                      echo $PATH
                       docker build -t nooli/billbreaker:v1 .
                       """
                 }
