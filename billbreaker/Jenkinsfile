@@ -1,22 +1,27 @@
 pipeline{
     agent any
-
     stages{
         stage('Build Jar file'){
-            script{
-                sh """
-                   echo "Start building"
-                   mvn clean build
-                """
+            steps{
+                script{
+                    sh """
+                       echo "Start building"
+                       mvn clean build
+                    """
+                }
             }
+
         }
         stage('Docker build and push '){
-            script{
-                sh """
-                   echo "Docker build and push"
-                   docker build -t nooli/billbreaker:v1 .
-                """
+            steps{
+                script{
+                   sh """
+                      echo "Docker build and push"
+                      docker build -t nooli/billbreaker:v1 .
+                      """
+                }
             }
+
 
         }
     }
