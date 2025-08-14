@@ -24,16 +24,16 @@ pipeline{
         }
         stage('Docker build and push '){
             steps{
-                script{
-                   sh """
-                      echo "Docker build and push"
-                      echo $PATH
-                      docker build -t nooli/billbreaker:v1 .
-                      """
+                dir('billbreaker'){
+                    script{
+                        sh """
+                            echo "Docker build and push"
+                            echo $PATH
+                             docker build -t nooli/billbreaker:v1 .
+                        """
+                    }
                 }
             }
-
-
         }
     }
 }
