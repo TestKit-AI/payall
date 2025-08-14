@@ -9,6 +9,7 @@ pipeline{
     stages{
         stage('Build Jar file'){
             steps{
+                sh "echo $PATH"
                 dir('billbreaker'){
                     script{
                         sh """
