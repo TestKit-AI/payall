@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    tools{
+        maven 'M313'
+    }
     stages{
         stage('Build Jar file'){
             steps{
