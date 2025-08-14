@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage('Build Jar file'){
             steps{
-                dir('/billbreaker')
+                sh "cd billbreaker"
                 script{
                     sh """
                        echo "Start building"
