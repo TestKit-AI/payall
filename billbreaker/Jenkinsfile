@@ -3,16 +3,21 @@ pipeline{
 
     stages{
         stage('Build Jar file'){
-            sh """
-                echo "Start building"
-                mvn clean build
-            """
+            script{
+                sh """
+                   echo "Start building"
+                   mvn clean build
+                """
+            }
         }
         stage('Docker build and push '){
-            sh """
-                echo "Docker build and push"
-                docker build -t nooli/billbreaker:v1 .
-            """
+            script{
+                sh """
+                   echo "Docker build and push"
+                   docker build -t nooli/billbreaker:v1 .
+                """
+            }
+
         }
     }
 }
