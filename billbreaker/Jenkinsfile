@@ -6,9 +6,9 @@ pipeline{
     stages{
         stage('Build Jar file'){
             steps{
+                dir('/billbreaker')
                 script{
                     sh """
-                       dir('/billbreaker')
                        echo "Start building"
                        ls -al
                        mvn clean build
