@@ -11,7 +11,8 @@ pipeline{
                         sh """
                            echo "Start building"
                            ls -al
-                           mvn clean build
+                           mvn clean
+                           mvn install
                            """
                     }
                 }
