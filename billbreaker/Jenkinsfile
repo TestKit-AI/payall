@@ -6,16 +6,16 @@ pipeline{
     stages{
         stage('Build Jar file'){
             steps{
-                sh "cd billbreaker"
-                script{
-                    sh """
-                       echo "Start building"
-                       ls -al
-                       mvn clean build
-                    """
+                dir('billbreaker'){
+                    script{
+                        sh """
+                           echo "Start building"
+                           ls -al
+                           mvn clean build
+                           """
+                    }
                 }
             }
-
         }
         stage('Docker build and push '){
             steps{
