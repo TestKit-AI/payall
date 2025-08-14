@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment {
-        PATH="/Users/sainooli/.docker/bin/docker:$PATH"
+        PATH="/Users/sainooli/.docker/bin:$PATH"
     }
     tools{
         maven 'M313'
