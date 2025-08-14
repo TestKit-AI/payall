@@ -9,6 +9,7 @@ pipeline{
                 script{
                     sh """
                        echo "Start building"
+                       ls -al
                        mvn clean build
                     """
                 }
